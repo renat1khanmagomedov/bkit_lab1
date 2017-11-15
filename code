@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SqrtRoot
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, b, c;
+            bool flag = false;
+            double Discriminant;
+            string input;
+
+            
+                do
+                {
+                flag = false;
+                do
+                    {
+                        System.Console.WriteLine("Введите A");
+                        input = System.Console.ReadLine();
+                    } while ((!Double.TryParse(input, out a)) && (a == 0));
+             
+                    do
+                    {
+                        System.Console.WriteLine("Введите B");
+                        input = System.Console.ReadLine();
+                    } while (!Double.TryParse(input, out b));
+
+                    do
+                    {
+                        System.Console.WriteLine("Введите C");
+                        input = System.Console.ReadLine();
+                    } while (!Double.TryParse(input, out c));
+
+                    Discriminant = b * b - 4 * a * c;
+
+                    if (Discriminant < 0)
+                    {
+                        flag = true;
+                        System.Console.WriteLine("Дискриминант меньше нуля");
+                    }
+
+                } while (flag == true);
+
+
+                 double root1 = (-b - Math.Sqrt(Discriminant)) / 2 * a;
+                double root2 = (-b + Math.Sqrt(Discriminant)) / 2 * a;
+
+
+                 System.Console.WriteLine("x1: " + root1 + "\nx2: " + root2);
+                 System.Console.ReadLine();
+        }
+    }
+}
